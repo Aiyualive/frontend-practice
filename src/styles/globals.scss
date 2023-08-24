@@ -53,22 +53,22 @@ input::-webkit-inner-spin-button {
 }
 
 
-
-// Global Scrollbar
-::-webkit-scrollbar {
-  //background: #{$lightRed};
-  width: 12px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: var(--lightestgrey);
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #{$lightRed};
-  border-radius: 10px;
-  border: 2px solid #{white};
-}
+//
+//// Global Scrollbar
+//::-webkit-scrollbar {
+//  //background: #{$lightRed};
+//  width: 12px;
+//}
+//
+///* Track */
+//::-webkit-scrollbar-track {
+//  background: var(--lightestgrey);
+//}
+//
+///* Handle */
+//::-webkit-scrollbar-thumb {
+//  background: #{$lightRed};
+//  border-radius: 10px;
+//  border: 2px solid #{white};
+//}
 
