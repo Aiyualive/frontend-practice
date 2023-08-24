@@ -16,6 +16,7 @@ export function Section({ children, ...props }: SectionWrapperProps) {
             position={"relative"}
             display={"flex"}
             justifyContent={"center"}
+            alignItems={"center"}
         >
             {children}
         </Box>

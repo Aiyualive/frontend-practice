@@ -6,7 +6,7 @@ import Box from "@mui/material/Box";
 import AppBar from "@mui/material/AppBar";
 import {MobileOverlay} from "./MobileOverlay";
 import {HeaderBurgerMenu, HeaderLogo, HeaderButtons,} from "./HeaderSections";
-import {useRouter} from "next/router";
+
 
 export function StandardHeader() {
     return (
@@ -25,7 +25,7 @@ export function StandardHeader() {
             <Box
                 component="div"
                 display="flex"
-                justifyContent={"flex-end"}
+                justifyContent={"center"}
                 flexGrow={1}
             >
                 <Box component="div"
@@ -34,7 +34,6 @@ export function StandardHeader() {
                 >
                     {/*<DropdownMenu title="Menu" dropdownItems={infoSections} />*/}
                     <HeaderButtons />
-
                 </Box>
             </Box>
         </>
@@ -44,14 +43,17 @@ export function StandardHeader() {
 
 export function Header({ headerPosition }) {
     const [openMenu, setOpenMenu] = useState<boolean>(false);
-    const router = useRouter();
-
 
     return (
         <>
             <AppBar
                 color={"transparent"}
-                sx={{ boxShadow: "unset", zIndex: 10 }}
+                sx={{
+                    boxShadow: "unset",
+                    zIndex: 10,
+                    borderBottom: "1px solid #E4EBFF",
+                    backdropFilter: "blur(10px)"
+                }}
                 position={headerPosition}
             >
                 <Container className="!max-w-none !mx-0">
