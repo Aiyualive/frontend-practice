@@ -10,4 +10,7 @@ export const SectionConfig: Record<string, SectionConfigType> = {
     carousel: {
         id: "carouselId"
     },
+    investors: {
+        id: "investorsId"
+    },
 };
