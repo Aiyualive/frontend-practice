@@ -3,12 +3,12 @@ import Button, { ButtonProps } from "@mui/material/Button";
 import Link from "next/link";
 import React from "react";
 
-interface Props extends ButtonProps<'a'> {
-    Icon?: React.FC
+export interface ButtonLinkProps extends ButtonProps<'a'> {
+    Icon?: () => React.ReactNode
     blank?: boolean
 }
 
-export const ButtonLink: React.FC<Props> = ({ Icon, href, blank = false, children, ...props }) => {
+export const ButtonLink: React.FC<ButtonLinkProps> = ({ Icon, href, blank = false, children, ...props }) => {
     if (!href) return null;
 
     return (
@@ -18,7 +18,9 @@ export const ButtonLink: React.FC<Props> = ({ Icon, href, blank = false, childre
             target={blank ? '_blank' : undefined}
             href={href || '#'}
         >
-            {children || (Icon && <Icon />)}
+            {children}
+
+            {Icon && <Icon/>}
         </Button>
     );
 };
