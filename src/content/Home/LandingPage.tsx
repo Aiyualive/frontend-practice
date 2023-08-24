@@ -26,12 +26,16 @@ export function LandingText(){
 export function LandingPage({...props}: BoxProps){
     return (
         <Section {...props}>
-            <div className={"flex flex-col"}>
-                <LandingText/>
+            <div className={"flex flex-col items-center gap-y-6"}>
+                <div>
+                    <ButtonLink {...ButtonConfig.access}/>
+                </div>
                 <LandingText/>
 
-                <ButtonLink {...ButtonConfig.app}/>
-                <ButtonLink {...ButtonConfig.docs}/>
+                <div className={"flex gap-x-6"}>
+                    <ButtonLink {...ButtonConfig.app}/>
+                    <ButtonLink {...ButtonConfig.docs}/>
+                </div>
             </div>
         </Section>
     );
