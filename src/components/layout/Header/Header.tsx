@@ -8,7 +8,7 @@ import {MobileOverlay} from "./MobileOverlay";
 import {HeaderBurgerMenu, HeaderLogo, HeaderButtons,} from "./HeaderSections";
 import {useRouter} from "next/router";
 
-export function StandardHeader({useMiddleButton = true}: {useMiddleButton?: boolean}) {
+export function StandardHeader() {
     return (
         <>
             {/* Left */}
@@ -34,6 +34,7 @@ export function StandardHeader({useMiddleButton = true}: {useMiddleButton?: bool
                 >
                     {/*<DropdownMenu title="Menu" dropdownItems={infoSections} />*/}
                     <HeaderButtons />
+
                 </Box>
             </Box>
         </>
@@ -45,17 +46,14 @@ export function Header({ headerPosition }) {
     const [openMenu, setOpenMenu] = useState<boolean>(false);
     const router = useRouter();
 
-    let headerComponent;
-    // make into a type
-    if (router.asPath === "/receipts") {
-        headerComponent = <StandardHeader useMiddleButton={false} />;
-    } else {
-        headerComponent = <StandardHeader/>;
-    }
 
     return (
         <>
-            <AppBar color={"transparent"} sx={{ boxShadow: "unset", zIndex: 10 }} position={headerPosition}>
+            <AppBar
+                color={"transparent"}
+                sx={{ boxShadow: "unset", zIndex: 10 }}
+                position={headerPosition}
+            >
                 <Container className="!max-w-none !mx-0">
                     <Toolbar
                         disableGutters
@@ -76,7 +74,7 @@ export function Header({ headerPosition }) {
                         </Box>
 
                         {/* Header content */}
-                        {headerComponent}
+                        <StandardHeader/>
                     </Toolbar>
                 </Container>
             </AppBar>
