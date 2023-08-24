@@ -102,7 +102,7 @@ const theme = (colorMode: PaletteMode) => responsiveFontSizes(createTheme({
                 {
                     props: { variant: 'contained' },
                     style: {
-                        backgroundColor: palette.contrastBlack,
+                        // backgroundColor: palette.contrastBlack,
                         '&:hover': {
                             backgroundColor: `${palette.contrastBlack}80`
                         },
