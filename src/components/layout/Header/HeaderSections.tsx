@@ -5,7 +5,6 @@ import Image from "next/image";
 import Box from "@mui/material/Box";
 import { Text } from "../../Text/TextComponent";
 import { TextBackground } from "../../Text/Typography";
-import { CartButton } from "../../../content/Cart/CartButton";
 
 export function HeaderLogo(){
     const AR = 168/120;
@@ -49,7 +48,7 @@ export function HeaderButtons({color = "#FFDDA8", scale = 1}: {color?: string, s
             component="div"
             className="flex gap-x-2 items-center"
         >
-            <CartButton/>
+            {/*<CartButton/>*/}
         </Box>
     );
 }
