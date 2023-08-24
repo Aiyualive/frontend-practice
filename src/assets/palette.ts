@@ -10,7 +10,7 @@ export const paletteLight = {
         light: palette.lightRed,
     },
     secondary: {
-        main: palette.baseYellow,
+        main: palette.contrastBlack,
     },
     tertiary: {
         main: palette.contrastBlue,
