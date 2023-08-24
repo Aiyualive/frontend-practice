@@ -27,17 +27,12 @@ export function Text({
     children,
     ...props
 }: TextProps) {
-    const textShadowColor = useTextShadowColor({
-        variant,
-        background: textBackground,
-    });
     const fontFamily = useFontFamily({ typographyVariant: variant, fontVariant });
     const variantStyle: TypographyVariant = useMemo(() => {
         const style = typography[variant];
         return {
             ...style,
             color: color ?? style.color,
-            textShadow: textShadowColor,
         };
     }, [color]);
     return (
@@ -45,9 +40,6 @@ export function Text({
             variant={variant}
             fontFamily={fontFamily}
             color={variantStyle.color}
-            sx={{
-                textShadow: variantStyle.textShadow ?? "",
-            }}
             {...props}
         >
             {children}
