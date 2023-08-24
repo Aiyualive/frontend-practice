@@ -5,7 +5,7 @@ import Image from "next/image";
 import Box from "@mui/material/Box";
 import { Text } from "../../Text/TextComponent";
 import { TextBackground } from "../../Text/Typography";
-import Button from "@mui/material/Button";
+import { ButtonLink } from "@components/Buttons/LinkButton";
 
 interface HeaderActionType {
     name: string
@@ -25,13 +25,12 @@ export const HeaderActions: Record<string, HeaderActionType> = {
     }
 };
 
-const actionList = Object.values(HeaderActions).map(action => ({
+const HeaderActionsList = Object.values(HeaderActions).map(action => ({
     name: action.name
 }));
 
 
 export function HeaderLogo(){
-    const AR = 168/120;
     return (
         <Link href="/" style={{display: "flex", alignItems: "center"}}>
             <Text.H5
@@ -59,19 +58,16 @@ export function HeaderBurgerMenu({openMenuStateFun, mobile = false}) {
     );
 }
 
-export function HeaderButtons({color = "#FFDDA8", scale = 1}: {color?: string, scale?: number }) {
+export function HeaderButtons() {
     return (
         <Box
             component="div"
             className="flex gap-x-2 items-center"
         >
-            {/*<CartButton/>*/}
-            {actionList.map(({name}) => (
-                <Link href={`/${name}`} >
-                    <Button>
-                        {name}
-                    </Button>
-                </Link>
+            {HeaderActionsList.map(({name}) => (
+                <ButtonLink key={`Header-${name}`} href={`/${name.toLowerCase()}`}>
+                    {name}
+                </ButtonLink>
             ))}
         </Box>
     );
