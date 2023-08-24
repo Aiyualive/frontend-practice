@@ -13,7 +13,7 @@ const Base = styled(Box)(({ theme }) => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    backgroundColor: palette.contrastBlack
+    backgroundColor: "white"
 }));
 
 const Body = styled(Box)(({ theme }) => ({
