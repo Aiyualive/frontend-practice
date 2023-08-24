@@ -5,7 +5,7 @@ import { ButtonLink } from "@components/Buttons/LinkButton";
 import { ButtonConfig } from "./HomeButtons";
 
 // Could use react type animation for the crypto wod
-export function LandingText(){
+function LandingText(){
     return (
         <div className={"flex flex-col text-center items-center gap-y-4"}>
             <Text.H1>
@@ -17,19 +17,33 @@ export function LandingText(){
 
             <div className={"w-[650px]"}>
                 <Text.Body1>
-                From fiat to crypto — wire, card & ACH to support for every major chain — tracking your subscriptions, invoices, and payment links has never been easier.
+                    From fiat to crypto — wire, card & ACH to support for every major chain — tracking your subscriptions, invoices, and payment links has never been easier.
                 </Text.Body1>
             </div>
         </div>
     );
 }
+
+// Not sure what positioning this is supposed to be
+function AvailableOn() {
+    return (
+        <div className={"absolute top-0 left-0"}>
+            <Text.Body1>
+                 Available on
+            </Text.Body1>
+            {/*  Insert blockchain icons  */}
+        </div>
+    );
+}
+
 export function LandingPage({...props}: BoxProps){
     return (
         <Section {...props}>
+            <AvailableOn/>
+
             <div className={"flex flex-col items-center gap-y-6"}>
-                <div>
-                    <ButtonLink {...ButtonConfig.access}/>
-                </div>
+                <div><ButtonLink {...ButtonConfig.access}/></div>
+
                 <LandingText/>
 
                 <div className={"flex gap-x-6"}>
