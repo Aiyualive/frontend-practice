@@ -27,7 +27,7 @@ export const paletteLight = {
     },
     divider: grey[200],
     text: {
-        primary: palette.baseYellow,
+        primary: palette.contrastBlack,
         secondary: palette.contrastBlack,
         // secondary: amber[800],
     },
