@@ -164,11 +164,11 @@ export function CarouselItem(){
                         })}
                     >
                         <img src="/images/main-screen.svg" className="h-auto w-full" />
-                        <motion.div
-                            style={{ opacity: avatarOpacity }}
-                            className="absolute left-[13%] top-1/2 h-[1.5vw] w-[1.5vw] translate-y-1/2 rounded-full border border-[#c82] object-cover will-change-transform"
-                            src="https://unsplash.com/photos/sibVwORYqs0/download?force=true&w=128&h=128"
-                        />
+                        {/*<motion.div*/}
+                        {/*    style={{ opacity: avatarOpacity }}*/}
+                        {/*    className="absolute left-[13%] top-1/2 h-[1.5vw] w-[1.5vw] translate-y-1/2 rounded-full border border-[#c82] object-cover will-change-transform"*/}
+                        {/*    src="https://unsplash.com/photos/sibVwORYqs0/download?force=true&w=128&h=128"*/}
+                        {/*/>*/}
                         <motion.span
                             className="mt-3 block text-2xl text-white"
                             style={{ opacity: newBranchOpacity }}
