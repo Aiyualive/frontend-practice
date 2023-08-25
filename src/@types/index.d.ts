@@ -10,3 +10,6 @@ declare module "*.png" {
 declare module "*.webp" {
     export default string;
 }
+
+
+declare module'*.scss';
