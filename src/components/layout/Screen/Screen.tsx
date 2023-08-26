@@ -2,7 +2,6 @@ import React from "react";
 import {Header} from "../Header";
 import Box from "@mui/material/Box";
 import { styled } from "@mui/material/styles";
-import { AppleWrapper } from "../../Container/AppleWrapper";
 import style from "../../../styles/style.module.scss";
 import palette from "../../../styles/palette.module.scss";
 
@@ -37,7 +36,7 @@ export const Screen = ({ children, headerPosition = "static" }: ScreenProps) => 
             <Header headerPosition={headerPosition} />
 
             <Body>
-                <AppleWrapper webComponent={children} />
+                {children}
             </Body>
         </Base>
     );

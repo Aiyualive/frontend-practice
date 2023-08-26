@@ -5,15 +5,16 @@ import style from "@styles/style.module.scss";
 
 export function ProductContainer({
     children,
+    position="relative",
     ...props
 }: BoxProps) {
     return (
         <Box
             {...props}
-            width={"300px"}
-            maxHeight={"425px"}
+            width={"500px"}
+            height={"300px"}
             component="div"
-            position="relative"
+            position={position}
             padding={"16px"}
             boxShadow={`-5px 5px ${palette.lightRed}`}
             flexDirection={"column"}
@@ -22,7 +23,7 @@ export function ProductContainer({
             textAlign="center"
             justifyContent="center"
             sx={{
-                background: (theme) => theme.palette.secondary.main,
+                background: (theme) => theme.palette.primary.main,
             }}
         >
             {children}
