@@ -1,7 +1,7 @@
 import React from "react";
 import Box, { BoxProps } from "@mui/material/Box";
 
-export function Section({ children, ref, overflow="hidden", ...props }: BoxProps) {
+export function Section({ children, ref, overflow="hidden", height="100vh", ...props }: BoxProps) {
     return (
         <Box
 
@@ -9,8 +9,8 @@ export function Section({ children, ref, overflow="hidden", ...props }: BoxProps
             ref={ref}
             component="div"
             overflow={overflow}
-            width="100%"
-            height={"100vh"}
+            width={"100%"}
+            height={height}
             position={"relative"}
             display={"flex"}
             justifyContent={"center"}
