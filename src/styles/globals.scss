@@ -1,7 +1,6 @@
 @import "fonts.css";
 @import "palette.scss";
 @import "style.scss";
-@import "divider.scss";
 
 @tailwind base;
 @tailwind components;
@@ -51,23 +50,3 @@ input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
 }
-
-
-//
-//// Global Scrollbar
-//::-webkit-scrollbar {
-//  //background: #{$lightRed};
-//  width: 12px;
-//}
-//
-///* Track */
-//::-webkit-scrollbar-track {
-//  background: var(--lightestgrey);
-//}
-//
-///* Handle */
-//::-webkit-scrollbar-thumb {
-//  background: #{$lightRed};
-//  border-radius: 10px;
-//  border: 2px solid #{white};
-//}
