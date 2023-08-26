@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-
+// https://codesandbox.io/s/framer-motion-scroll-linked-animation-s6b8rr?file=/src/ScrollAnimation.js
 export const ScrollAnimation = () => {
     const containerRef = useRef(null);
 
