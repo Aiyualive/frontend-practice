@@ -9,6 +9,9 @@ function useCardScroll(endPercentage): { containerRef: React.RefObject<HTMLDivEl
     const containerRef = useRef<HTMLDivElement | null>(null);
     const scroll = useScroll({
         target: containerRef,
+        // Start monitoring, when the start of the target meets the end of the container
+        // container is per default the viewport
+        // End monitoring when the end of the target meets the end of the container
         offset: ["start end", "end end"]
     });
     const scaleValue = useTransform(scroll.scrollYProgress, [0, 1], ["100%", endPercentage]);
@@ -29,6 +32,8 @@ export function SectionCarousel({...props}){
         mass: 2.3,
         stiffness: 422
     };
+
+    // how to make card1 card2 card3 continue to scale down as you scroll
     const cards = [
         {ref: card1.containerRef, scaleValue: card2.scaleValue, color: "green"},
         {ref: card2.containerRef, scaleValue: card3.scaleValue, color: "orange"},
