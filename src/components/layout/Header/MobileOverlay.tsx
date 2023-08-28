@@ -1,7 +1,7 @@
 import React from "react";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
-import { HeaderBurgerMenu, HeaderButtons } from "./HeaderSections";
+import { HeaderBurgerMenu, HeaderButtons } from "./HeaderElements";
 import Link from "next/link";
 import { Text } from "../../Text/TextComponent";
 import palette from "../../../styles/palette.module.scss";
@@ -46,4 +46,27 @@ export function MobileOverlay({ setOpenMenu }: MobileOverlayProps) {
             <HeaderButtons/>
         </Box>
     );
+}
+
+interface useMobileOverlayProps {
+    openMenu: boolean;
+    setOpenMenu: React.Dispatch<React.SetStateAction<boolean>>;
+    OverlayComponent: () => React.ReactNode;
+    TriggerButton: () => React.ReactNode;
+}
+export function useMobileOverlay(): useMobileOverlayProps {
+    const [openMenu, setOpenMenu] = React.useState<boolean>(false);
+
+    const OverlayComponent = () => <>
+        {openMenu && <MobileOverlay setOpenMenu={setOpenMenu} />}
+    </>;
+
+    const TriggerButton = () => <HeaderBurgerMenu openMenuStateFun={() => setOpenMenu(true)} />;
+
+    return {
+        openMenu,
+        setOpenMenu,
+        OverlayComponent,
+        TriggerButton
+    };
 }

@@ -1,48 +1,73 @@
 // Main inspiration: https://www.youtube.com/watch?v=9paBIA2R5C0
-import React, {useState} from "react";
+import React from "react";
 import Container from "@mui/material/Container";
 import Toolbar from "@mui/material/Toolbar";
 import Box from "@mui/material/Box";
 import AppBar from "@mui/material/AppBar";
-import {MobileOverlay} from "./MobileOverlay";
-import {HeaderBurgerMenu, HeaderLogo, HeaderButtons,} from "./HeaderSections";
+import {useMobileOverlay } from "./MobileOverlay";
+import {HeaderBurgerMenu, HeaderLogo, HeaderButtons,} from "./HeaderElements";
+import { ButtonLink } from "@components/Buttons/LinkButton";
+import { ButtonConfig } from "@components/Buttons/ButtonConfig";
 
-
-export function StandardHeader() {
+function HeaderLeft({TriggerButton}: {TriggerButton: () => React.ReactNode}) {
     return (
-        <>
-            {/* Left */}
+        <Box
+            component="div"
+            display="flex"
+            justifyContent={"flex-start"}
+            flex={"1 0 0"}
+        >
+            {/* Either show Logo or hamburger*/}
             <Box
                 component="div"
-                columnGap="12px"
-                marginLeft={"20px"}
-                display={{ xs: "none", md: "flex" }}
+                display={{ xs: "none", md: "flex"}}
             >
-
+                <HeaderLogo />
             </Box>
 
-            {/* Right */}
             <Box
                 component="div"
-                display="flex"
-                justifyContent={"center"}
-                flexGrow={1}
+                display={{ xs: "flex", md: "none" }}
             >
-                <Box component="div"
-                    display={{ xs: "none", sm: "none", md: "flex", lg: "flex" }}
-                    sx={{marginRight: "16px"}}
-                >
-                    {/*<DropdownMenu title="Menu" dropdownItems={infoSections} />*/}
-                    <HeaderButtons />
-                </Box>
+                <TriggerButton/>
             </Box>
-        </>
+        </Box>
+    );
+}
+function HeaderCenter() {
+    return (
+        <Box
+            component="div"
+            display="flex"
+            justifyContent={"center"}
+            flexGrow={1}
+        >
+            <Box component="div"
+                display={{ xs: "none", sm: "none", md: "flex", lg: "flex" }}
+            >
+                <HeaderButtons />
+            </Box>
+        </Box>
+    );
+}
+
+
+function HeaderRight() {
+    return (
+        <Box
+            component="div"
+            display="flex"
+            justifyContent={"flex-end"}
+            flex={"1 0 0"}
+        >
+            <ButtonLink {...ButtonConfig.app}/>
+        </Box>
     );
 }
 
 
 export function Header({ headerPosition }) {
-    const [openMenu, setOpenMenu] = useState<boolean>(false);
+    const {OverlayComponent, TriggerButton} = useMobileOverlay();
 
     return (
         <>
@@ -63,25 +88,18 @@ export function Header({ headerPosition }) {
                             marginY: "8px",
                             display: "flex",
                             justifyContent: "space-between",
-                            paddingRight: "0px"
                         }}
                     >
-                        {/* Either show Logo or hamburger*/}
-                        <Box component="div" display={{ xs: "none", md: "flex"}}>
-                            <HeaderLogo />
-                        </Box>
+                        <HeaderLeft TriggerButton={TriggerButton}/>
 
-                        <Box component="div" display={{ xs: "flex", md: "none" }}>
-                            <HeaderBurgerMenu openMenuStateFun={() => setOpenMenu(true)} />
-                        </Box>
+                        <HeaderCenter/>
 
-                        {/* Header content */}
-                        <StandardHeader/>
+                        <HeaderRight/>
                     </Toolbar>
                 </Container>
             </AppBar>
 
-            { openMenu && <MobileOverlay setOpenMenu={setOpenMenu}/>}
+            <OverlayComponent/>
         </>
     );
 }
