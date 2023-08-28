@@ -27,7 +27,6 @@ export function SectionCarousel2({...props}){
         }
 
     }, []);
-
     const translate1 = useTransform(scroll.scrollYProgress, [divHeight/containerHeight, 1], ["0px", "-200px"]);
     const translate2 = useTransform(scroll.scrollYProgress, [divHeight/containerHeight * 2, 1], ["0px", "-200px"]);
 

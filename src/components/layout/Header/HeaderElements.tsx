@@ -65,7 +65,10 @@ export function HeaderButtons() {
             className="flex gap-x-2 items-center"
         >
             {HeaderActionsList.map(({name}) => (
-                <ButtonLink key={`Header-${name}`} href={`/${name.toLowerCase()}`}>
+                <ButtonLink
+                    key={`Header-${name}`}
+                    href={`/${name.toLowerCase()}`}
+                >
                     {name}
                 </ButtonLink>
             ))}

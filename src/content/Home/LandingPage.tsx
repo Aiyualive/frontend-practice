@@ -2,7 +2,7 @@ import { Section } from "@components/Container/Section";
 import { BoxProps } from "@mui/material/Box";
 import { Text } from "@components/Text/TextComponent";
 import { ButtonLink } from "@components/Buttons/LinkButton";
-import { ButtonConfig } from "./HomeButtons";
+import { ButtonConfig } from "@components/Buttons/ButtonConfig";
 
 // Could use react type animation for the crypto wod
 function LandingText(){
